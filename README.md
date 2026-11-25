@@ -1,4 +1,4 @@
-# GitHub Repository Template
+# markuiz-decks
 
 <!-- markdownlint-disable -->
 <p align="center">
@@ -7,16 +7,16 @@
 </p>
 
 <p align="center">
-  <strong>GitHub repository template with preconfigured code quality and release automation</strong>
+  <strong>markuiz-decks</strong>
 </p>
 
 <p align="center">
-<a href="https://github.com/maxime-lenne/github-repository-template/actions?query=workflow%3ALint+branch%3Amain">
-		<img src="https://img.shields.io/github/actions/workflow/status/maxime-lenne/github-repository-template/lint.yml?branch=main"
+<a href="https://github.com/maxime-lenne/markuiz-decks/actions?query=workflow%3ALint+branch%3Amain">
+		<img src="https://img.shields.io/github/actions/workflow/status/maxime-lenne/markuiz-decks/lint.yml?branch=main"
 			 alt="Build Status">
 	</a>
-  <a href="https://github.com/maxime-lenne/github-repository-template/actions?query=workflow%3ARelease+branch%3Amain">
-		<img src="https://img.shields.io/github/actions/workflow/status/maxime-lenne/github-repository-template/release.yml?branch=main"
+  <a href="https://github.com/maxime-lenne/markuiz-decks/actions?query=workflow%3ARelease+branch%3Amain">
+		<img src="https://img.shields.io/github/actions/workflow/status/maxime-lenne/markuiz-decks/release.yml?branch=main"
 			 alt="Build Status">
 	</a>
   <a href="https://opensource.org/licenses/MIT">
@@ -64,63 +64,6 @@ one workflow run and one command.
 - **Renovate** - Weekly dependency updates, automerged when CI passes
   (shared preset [`maxime-lenne/renovate-config`](https://github.com/maxime-lenne/renovate-config))
 - **GitHub vulnerability alerts** - Read by Renovate to open security fixes
-
-<!-- template-only:start -->
-## Create a New Project
-
-### Prerequisites (once)
-
-- [GitHub CLI](https://cli.github.com/) logged in (`gh auth login`) and [Bun](https://bun.sh)
-- [Renovate GitHub App](https://github.com/apps/renovate) installed on
-  **All repositories**: every new repository is then covered automatically
-- A personal access token of yours, exported as `RELEASE_TOKEN`: the release
-  workflow uses it to push the `🔖 Release` commit to the protected `main`
-  (see [Release Token](docs/TECHNICAL_GUIDE.md#release-token))
-
-### Steps
-
-```bash
-# 1. Create the repository from the template (public: see "Private repositories")
-gh repo create my-app --template maxime-lenne/github-repository-template --public --clone
-cd my-app
-
-# 2. Wait for the "Initialize repository" workflow, then fetch its commit
-gh run watch
-git pull
-
-# 3. Install dependencies and git hooks
-bun install
-
-# 4. Apply GitHub settings (uses your gh session, admin rights)
-#    and store RELEASE_TOKEN as a repository secret
-bun run setup:github
-```
-
-### What Is Configured Automatically
-
-| When | What |
-|------|------|
-| First push (`init.yml` workflow) | `package.json` name / version `0.0.0` / description, README title and links, empty `CHANGELOG.md` and `docs/TASKS.md`, `main` branch created next to `develop`, labels |
-| `bun run setup:github` | Default branch `develop`, rebase-only merges, auto-merge, delete merged branches, vulnerability alerts on, Dependabot security updates off, branch protection on `develop` and `main`, labels, `RELEASE_TOKEN` secret |
-| Renovate (app installed) | Dependency Dashboard issue, weekly update PRs, automerge of non-major updates when CI passes |
-
-All GitHub settings come from [`.github/settings.yml`](.github/settings.yml).
-Re-run `bun run setup:github` after changing it; `--dry-run` shows what would
-change.
-
-### Private Repositories
-
-On GitHub Free, private repositories cannot use branch protection nor
-auto-merge: `setup:github` reports them as warnings and applies everything
-else. Renovate still automerges by merging PRs itself once checks pass.
-
-### Then Adapt the Project
-
-1. Rewrite `README.md` and the `docs/` files for the project
-2. Update `homepage` in `.github/settings.yml` and `.github/CODEOWNERS`
-3. Optionally delete `.github/workflows/init.yml` (it no longer does anything)
-
-<!-- template-only:end -->
 
 ## Usage
 
