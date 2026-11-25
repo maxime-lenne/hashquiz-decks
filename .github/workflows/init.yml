@@ -1,0 +1,80 @@
+name: Initialize repository
+
+# Runs once, on the first push of a repository created from this template:
+# cleans up template content (scripts/init-template.js), creates the main and
+# develop branches and the labels from .github/settings.yml.
+# Once done, scripts/init-template.js no longer exists and the job is a no-op.
+# This workflow cannot delete itself (GITHUB_TOKEN has no `workflows`
+# permission): remove this file afterwards if you want.
+
+on:
+  push:
+    branches: [develop, main]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  init:
+    name: Initialize from template
+    runs-on: ubuntu-latest
+    # Only on the default branch: with "Include all branches", every copied
+    # branch triggers a push, the others must not be initialized too
+    if: ${{ !github.event.repository.is_template && github.ref_name == github.event.repository.default_branch }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Check if initialization is pending
+        id: pending
+        run: |
+          if [ -f scripts/init-template.js ]; then
+            echo "value=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Already initialized, nothing to do"
+          fi
+
+      - name: Setup Bun
+        if: steps.pending.outputs.value == 'true'
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: package.json
+
+      - name: Clean up template content
+        if: steps.pending.outputs.value == 'true'
+        env:
+          REPO_DESCRIPTION: ${{ github.event.repository.description }}
+        run: bun scripts/init-template.js
+
+      - name: Commit and push
+        if: steps.pending.outputs.value == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "🎉 Initialize project from template"
+          git push
+
+      # "Include all branches" copies each branch with its own root commit:
+      # main would share no history with develop. Delete the copies so the
+      # next step recreates them from the default branch.
+      - name: Drop branches copied from the template
+        if: steps.pending.outputs.value == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          for branch in main develop; do
+            [ "$branch" = "$DEFAULT_BRANCH" ] && continue
+            if gh api "repos/$GITHUB_REPOSITORY/branches/$branch" --silent 2>/dev/null; then
+              gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$branch"
+              echo "Deleted $branch copied from the template"
+            fi
+          done
+
+      - name: Create branches and labels
+        if: steps.pending.outputs.value == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bun scripts/setup-github.js --only=branches,labels
