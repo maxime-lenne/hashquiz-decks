@@ -7,7 +7,7 @@ Main guide for AI assistants working on this repository.
 ## Quick commands
 
 ```bash
-bun install           # Install dependencies (markuiz CLI)
+bun install           # Install dependencies (hashquiz CLI)
 bun run check         # Validate every deck
 bun run dev <deck>    # Local game for one deck (decks/<slug>/index.quizv.md)
 bun run build         # Static site in dist/ (Vercel)
@@ -25,4 +25,4 @@ bun run clean:branches # Delete local branches whose PR was merged
 1. **Always consult** `docs/AGENTS.md` before any modification
 2. **Update** documentation when making changes
 3. **Follow** conventions established in each `docs/` file
-4. **Decks only**: the quiz engine is the `markuiz` npm package (source: maxime-lenne/quizv), never copy its code here
+4. **Decks only**: the quiz engine is the `hashquiz` npm package (source: maxime-lenne/quizv), never copy its code here
