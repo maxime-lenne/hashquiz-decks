@@ -6,10 +6,10 @@
 markuiz-decks/
 ├── decks/                      # One folder per quiz deck
 │   └── <slug>/
-│       ├── index.quizv.md      # The quiz (Markuiz format)
+│       ├── index.quizv.md      # The quiz (HashQuiz format)
 │       ├── assets/             # Images used by the deck
 │       └── sources/            # Raw material used to plan it (not linted)
-├── vercel.json                 # Vercel deploy of `markuiz build` output
+├── vercel.json                 # Vercel deploy of `hashquiz build` output
 ├── .claude/                    # Claude Code configuration
 ├── .github/                    # GitHub configuration
 │   ├── workflows/              # CI/CD workflows
