@@ -12,6 +12,7 @@
         "@semantic-release/release-notes-generator": "^14.1.1",
         "conventional-changelog-conventionalcommits": "^9.3.1",
         "gitmoji-cli": "^9.7.0",
+        "hashquiz": "^1.0.0-beta.1",
         "husky": "^9.1.7",
         "lint-staged": "^17.5.1",
         "markdownlint-cli": "^0.49.1",
@@ -405,6 +406,8 @@
     "handlebars": ["handlebars@4.7.9", "", { "dependencies": { "minimist": "^1.2.5", "neo-async": "^2.6.2", "source-map": "^0.6.1", "wordwrap": "^1.0.0" }, "optionalDependencies": { "uglify-js": "^3.1.4" }, "bin": { "handlebars": "bin/handlebars" } }, "sha512-4E71E0rpOaQuJR2A3xDZ+GM1HyWYv1clR58tC8emQNeQe3RH7MAzSbat+V0wG78LQBo6m6bzSG/L4pBuCsgnUQ=="],
 
     "has-flag": ["has-flag@4.0.0", "", {}, "sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ=="],
+
+    "hashquiz": ["hashquiz@1.0.0-beta.2", "", { "bin": { "hashquiz": "bin/hashquiz.js" } }, "sha512-k5o9cFFAMUIMgjATBgnbOMbPKrk4nlrupMdVwLMTlSNd0n1jAnxif/m9pPvtddWuI2/9XZgkaNdcy7+uGqeQ2A=="],
 
     "highlight.js": ["highlight.js@10.7.3", "", {}, "sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A=="],
 
