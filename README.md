@@ -36,9 +36,9 @@
 
 ---
 
-Quiz decks played with [Markuiz](https://github.com/maxime-lenne/quizv), a real-time
+Quiz decks played with [HashQuiz](https://github.com/maxime-lenne/quizv), a real-time
 multiplayer quiz (Kahoot alternative) driven by Markdown. The engine comes from the
-[`markuiz`](https://www.npmjs.com/package/markuiz) npm package: this repository only holds decks.
+[`hashquiz`](https://www.npmjs.com/package/hashquiz) npm package: this repository only holds decks.
 
 ## Decks
 
@@ -66,12 +66,12 @@ Vercel project (Supabase Realtime carries the game):
 
 | Variable | Value |
 | --- | --- |
-| `MARKUIZ_TRANSPORT` | `supabase` |
-| `MARKUIZ_SUPABASE_URL` | Supabase project URL |
-| `MARKUIZ_SUPABASE_ANON_KEY` | Supabase anon public key |
+| `HASHQUIZ_TRANSPORT` | `supabase` |
+| `HASHQUIZ_SUPABASE_URL` | Supabase project URL |
+| `HASHQUIZ_SUPABASE_ANON_KEY` | Supabase anon public key |
 
 Then `/` is the player join page and `/host` the host dashboard. Details:
-[markuiz package docs](https://github.com/maxime-lenne/quizv/blob/develop/docs/PACKAGE.md).
+[hashquiz package docs](https://github.com/maxime-lenne/quizv/blob/develop/docs/PACKAGE.md).
 
 ## Repository tooling
 
