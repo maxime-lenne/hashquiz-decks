@@ -25,4 +25,4 @@ bun run clean:branches # Delete local branches whose PR was merged
 1. **Always consult** `docs/AGENTS.md` before any modification
 2. **Update** documentation when making changes
 3. **Follow** conventions established in each `docs/` file
-4. **Decks only**: the quiz engine is the `hashquiz` npm package (source: maxime-lenne/quizv), never copy its code here
+4. **Decks only**: the quiz engine is the `hashquiz` npm package (source: WhiteWoodTech/hashquiz), never copy its code here
