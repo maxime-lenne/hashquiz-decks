@@ -28,7 +28,7 @@
     "sync:develop": "bun scripts/sync-develop.js"
   },
   "devDependencies": {
-    "hashquiz": "^1.0.0-beta.1",
+    "hashquiz": "^1.0.0-beta.2",
     "@commitlint/cli": "^21.2.2",
     "@semantic-release/changelog": "^7.0.0",
     "@semantic-release/commit-analyzer": "^13.0.1",
