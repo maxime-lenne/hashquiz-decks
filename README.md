@@ -36,7 +36,7 @@
 
 ---
 
-Quiz decks played with [HashQuiz](https://github.com/maxime-lenne/quizv), a real-time
+Quiz decks played with [HashQuiz](https://github.com/WhiteWoodTech/hashquiz), a real-time
 multiplayer quiz (Kahoot alternative) driven by Markdown. The engine comes from the
 [`hashquiz`](https://www.npmjs.com/package/hashquiz) npm package: this repository only holds decks.
 
@@ -71,7 +71,7 @@ Vercel project (Supabase Realtime carries the game):
 | `HASHQUIZ_SUPABASE_ANON_KEY` | Supabase anon public key |
 
 Then `/` is the player join page and `/host` the host dashboard. Details:
-[hashquiz package docs](https://github.com/maxime-lenne/quizv/blob/develop/docs/PACKAGE.md).
+[hashquiz package docs](https://github.com/WhiteWoodTech/hashquiz/blob/develop/docs/PACKAGE.md).
 
 ## Repository tooling
 
