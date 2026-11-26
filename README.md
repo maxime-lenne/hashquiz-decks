@@ -36,12 +36,44 @@
 
 ---
 
-A ready-to-use GitHub repository template with linting, git hooks, automated
-changelog, semantic versioning and automerged dependency updates. A new
-repository created from it configures itself (branches, labels, rules) with
-one workflow run and one command.
+Quiz decks played with [Markuiz](https://github.com/maxime-lenne/quizv), a real-time
+multiplayer quiz (Kahoot alternative) driven by Markdown. The engine comes from the
+[`markuiz`](https://www.npmjs.com/package/markuiz) npm package: this repository only holds decks.
 
-## Features
+## Decks
+
+| Deck | Title | Topics |
+|------|-------|--------|
+| [`docker-fundamentals`](decks/docker-fundamentals/) | Docker | docker-fundamentals, image, container |
+| [`genai-llm-introduction`](decks/genai-llm-introduction/) | Fondamentaux de l'IA Générative | ia, llm, prompt, rag, agents, mcp, gen-ai |
+| [`mcp-intro-and-overview`](decks/mcp-intro-and-overview/) | MCP intro and overview | mcp, ai, llm, integration |
+
+Each folder holds an `index.quizv.md` (the quiz), `assets/` and the `sources/` used to plan it.
+
+## Play and publish
+
+```bash
+bun install
+bun run check                                             # validate every deck
+bun run dev decks/docker-fundamentals/index.quizv.md      # local game
+bun run build                                             # static site in dist/
+```
+
+`bun run dev` starts a local game: host on <http://localhost:3031/host/>, players on port 3032.
+
+The site deploys on Vercel with [`vercel.json`](vercel.json). Set these variables in the
+Vercel project (Supabase Realtime carries the game):
+
+| Variable | Value |
+| --- | --- |
+| `MARKUIZ_TRANSPORT` | `supabase` |
+| `MARKUIZ_SUPABASE_URL` | Supabase project URL |
+| `MARKUIZ_SUPABASE_ANON_KEY` | Supabase anon public key |
+
+Then `/` is the player join page and `/host` the host dashboard. Details:
+[markuiz package docs](https://github.com/maxime-lenne/quizv/blob/develop/docs/PACKAGE.md).
+
+## Repository tooling
 
 ### Code Quality
 
