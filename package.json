@@ -1,5 +1,5 @@
 {
-  "name": "markuiz-decks",
+  "name": "hashquiz-decks",
   "version": "0.0.0",
   "description": "HashQuiz quiz decks: Docker, GenAI LLM introduction, MCP intro and overview",
   "type": "module",

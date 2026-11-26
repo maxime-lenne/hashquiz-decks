@@ -8,8 +8,8 @@ Thank you for your interest in contributing to this project!
 2. Clone your fork:
 
    ```bash
-   git clone https://github.com/maxime-lenne/markuiz-decks.git
-   cd markuiz-decks
+   git clone https://github.com/maxime-lenne/hashquiz-decks.git
+   cd hashquiz-decks
    ```
 
 3. Install dependencies:
