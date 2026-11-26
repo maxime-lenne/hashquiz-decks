@@ -3,7 +3,7 @@
 ## Directory Organization
 
 ```text
-markuiz-decks/
+hashquiz-decks/
 ├── decks/                      # One folder per quiz deck
 │   └── <slug>/
 │       ├── index.quizv.md      # The quiz (HashQuiz format)

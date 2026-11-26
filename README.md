@@ -1,4 +1,4 @@
-# markuiz-decks
+# hashquiz-decks
 
 <!-- markdownlint-disable -->
 <p align="center">
@@ -7,16 +7,16 @@
 </p>
 
 <p align="center">
-  <strong>markuiz-decks</strong>
+  <strong>hashquiz-decks</strong>
 </p>
 
 <p align="center">
-<a href="https://github.com/maxime-lenne/markuiz-decks/actions?query=workflow%3ALint+branch%3Amain">
-		<img src="https://img.shields.io/github/actions/workflow/status/maxime-lenne/markuiz-decks/lint.yml?branch=main"
+<a href="https://github.com/maxime-lenne/hashquiz-decks/actions?query=workflow%3ALint+branch%3Amain">
+		<img src="https://img.shields.io/github/actions/workflow/status/maxime-lenne/hashquiz-decks/lint.yml?branch=main"
 			 alt="Build Status">
 	</a>
-  <a href="https://github.com/maxime-lenne/markuiz-decks/actions?query=workflow%3ARelease+branch%3Amain">
-		<img src="https://img.shields.io/github/actions/workflow/status/maxime-lenne/markuiz-decks/release.yml?branch=main"
+  <a href="https://github.com/maxime-lenne/hashquiz-decks/actions?query=workflow%3ARelease+branch%3Amain">
+		<img src="https://img.shields.io/github/actions/workflow/status/maxime-lenne/hashquiz-decks/release.yml?branch=main"
 			 alt="Build Status">
 	</a>
   <a href="https://opensource.org/licenses/MIT">
