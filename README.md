@@ -14,14 +14,14 @@ deck and three small config files. Fork it to start your own.
 ```text
 decks/
   genai-introduction/
-    index.quizv.md   # the quiz: 10 questions on generative AI
+    index.hashquiz.md  # the quiz: 10 questions on generative AI
   genai-introduction-solo/
-    index.quizv.md   # the same quiz with `solo: true`, to play alone
-package.json         # the hashquiz CLI and three scripts: check, dev, build
-vercel.json          # how Vercel builds and serves the site
-.env.example         # the Supabase settings used by the build
+    index.hashquiz.md  # the same quiz with `solo: true`, to play alone
+package.json           # the hashquiz CLI and three scripts: check, dev, build
+vercel.json            # how Vercel builds and serves the site
+.env.example           # the Supabase settings used by the build
 .github/workflows/
-  ci.yml             # checks and builds the decks on every push
+  ci.yml               # checks and builds the decks on every push
 ```
 
 Once it's deployed, the site has two pages:
@@ -47,7 +47,7 @@ bun install
 
 ## Step 2. Write a deck
 
-A deck is one Markdown file, `decks/<slug>/index.quizv.md`. It starts with a frontmatter that
+A deck is one Markdown file with the `.hashquiz.md` extension, `decks/<slug>/index.hashquiz.md`. It starts with a frontmatter that
 describes the quiz:
 
 ```markdown
@@ -92,14 +92,14 @@ tags: [ia, histoire]
 | `- [x]` / `- [ ]` | A right / wrong choice. Always write **exactly 4 choices** that look alike |
 | `> ...` | The explanation shown after the answer is revealed |
 
-Open [`decks/genai-introduction/index.quizv.md`](decks/genai-introduction/index.quizv.md) for the
+Open [`decks/genai-introduction/index.hashquiz.md`](decks/genai-introduction/index.hashquiz.md) for the
 full example, including a `multiple` question. To add a deck, create another folder in `decks/`.
 
 ## Step 3. Check and play locally
 
 ```bash
-bun run check                                         # validate every deck
-bun run dev decks/genai-introduction/index.quizv.md   # start a local game
+bun run check                                           # validate every deck
+bun run dev decks/genai-introduction/index.hashquiz.md  # start a local game
 ```
 
 `bun run dev` needs no account. It starts the host on <http://localhost:3031/host/> and the
@@ -115,7 +115,7 @@ The free plan is enough, and a multiplayer game needs no table or schema.
 1. On <https://supabase.com>, create a new project.
 2. In **Project Settings → API**, copy the **Project URL** and the **anon public** key.
 
-The anon key is meant to be public: it ends up in the site's `quizv-config.js`.
+The anon key is meant to be public: it ends up in the site's `hashquiz-config.js`.
 
 ## Step 5. Build the site
 
@@ -126,7 +126,7 @@ dist/
   index.html          # player app
   host/index.html     # host app
   host/decks.json     # the deck list read by the host
-  quizv-config.js     # the settings below, read by both apps at runtime
+  hashquiz-config.js  # the settings below, read by both apps at runtime
 ```
 
 The build reads its settings from the environment. To try a Supabase build locally, copy
@@ -172,7 +172,7 @@ each push redeploys the site.
 ## Going further
 
 - **Solo mode**: a deck with `solo: true` can also be played alone, with a leaderboard, like
-  [`genai-introduction-solo`](decks/genai-introduction-solo/index.quizv.md). The player home lists it
+  [`genai-introduction-solo`](decks/genai-introduction-solo/index.hashquiz.md). The player home lists it
   under the join form, and its host card shows **Jouer en solo**. Locally,
   `bun run dev decks` (the folder, not a single file) serves it with no setup and keeps the runs in `.hashquiz/solo.db`. Online, it needs the
   HashQuiz schema in Supabase, which one command deploys once the site is live (it needs the

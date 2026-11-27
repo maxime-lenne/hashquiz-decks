@@ -5,11 +5,11 @@
     "": {
       "name": "hashquiz-decks",
       "devDependencies": {
-        "hashquiz": "^1.0.0-beta.3",
+        "hashquiz": "^1.0.0-beta.4",
       },
     },
   },
   "packages": {
-    "hashquiz": ["hashquiz@1.0.0-beta.3", "", { "bin": { "hashquiz": "bin/hashquiz.js" } }, "sha512-vSkJLWl69tPleexXj9NVr0mYyNer2FVhcdBLHapAbbG83RQ0u7Nhi6o+X/dI1rWccSNWEFNitLUeCGTjGJOzfw=="],
+    "hashquiz": ["hashquiz@1.0.0-beta.4", "", { "bin": { "hashquiz": "bin/hashquiz.js" } }, "sha512-BL5pJbaaHZbN52CeyGJT7Kjh1ZbkHpkJcESflAabBJoNwqmCBxRo4eTp91BTxNJVTyDFWuTZwKpiL0dEFHlI8w=="],
   }
 }

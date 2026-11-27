@@ -15,11 +15,11 @@
   "type": "module",
   "packageManager": "bun@1.4.2",
   "scripts": {
-    "check": "for f in decks/*/index.quizv.md; do hashquiz check \"$f\" || exit 1; done",
+    "check": "for f in decks/*/index.hashquiz.md; do hashquiz check \"$f\" || exit 1; done",
     "dev": "hashquiz dev",
     "build": "hashquiz build decks --out dist"
   },
   "devDependencies": {
-    "hashquiz": "^1.0.0-beta.3"
+    "hashquiz": "^1.0.0-beta.4"
   }
 }
