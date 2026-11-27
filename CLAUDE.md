@@ -1,7 +1,8 @@
 # CLAUDE.md
 
-This repository is a public demo of a HashQuiz decks repository. Keep it small and didactic:
-the README is a step-by-step tutorial, so update it with any change.
+This repository is a public demo of a HashQuiz decks repository, and the home of the example decks
+(the engine repository only keeps a test fixture). Keep it small and didactic: the README is a
+step-by-step tutorial, so update it with any change.
 
 ```bash
 bun install                                            # install the hashquiz CLI
