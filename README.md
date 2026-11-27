@@ -15,6 +15,8 @@ deck and three small config files. Fork it to start your own.
 decks/
   genai-introduction/
     index.quizv.md   # the quiz: 10 questions on generative AI
+  genai-introduction-solo/
+    index.quizv.md   # the same quiz with `solo: true`, to play alone
 package.json         # the hashquiz CLI and three scripts: check, dev, build
 vercel.json          # how Vercel builds and serves the site
 .env.example         # the Supabase settings used by the build
@@ -169,8 +171,10 @@ each push redeploys the site.
 
 ## Going further
 
-- **Solo mode**: a deck with `solo: true` can also be played alone, with a leaderboard. Locally,
-  `bun run dev` serves it with no setup and keeps the runs in `.hashquiz/solo.db`. Online, it needs the
+- **Solo mode**: a deck with `solo: true` can also be played alone, with a leaderboard, like
+  [`genai-introduction-solo`](decks/genai-introduction-solo/index.quizv.md). The player home lists it
+  under the join form, and its host card shows **Jouer en solo**. Locally,
+  `bun run dev decks` (the folder, not a single file) serves it with no setup and keeps the runs in `.hashquiz/solo.db`. Online, it needs the
   HashQuiz schema in Supabase, which one command deploys once the site is live (it needs the
   [Supabase CLI](https://supabase.com/docs/guides/cli), and `SUPABASE_ACCESS_TOKEN` and
   `SUPABASE_DB_PASSWORD` in the environment):
@@ -178,6 +182,7 @@ each push redeploys the site.
   ```bash
   HASHQUIZ_SITE_URL=https://<your-domain> bunx hashquiz supabase deploy --project <project-ref>
   ```
+
 - **Every option** of the CLI and the build: the
   [`hashquiz` package docs](https://github.com/WhiteWoodTech/hashquiz/blob/develop/docs/PACKAGE.md).
 
