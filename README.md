@@ -36,9 +36,16 @@
 
 ---
 
-Quiz decks played with [HashQuiz](https://github.com/WhiteWoodTech/hashquiz), a real-time
-multiplayer quiz (Kahoot alternative) driven by Markdown. The engine comes from the
-[`hashquiz`](https://www.npmjs.com/package/hashquiz) npm package: this repository only holds decks.
+A public demo of how to implement [HashQuiz](https://github.com/WhiteWoodTech/hashquiz), a
+real-time multiplayer quiz (Kahoot alternative) driven by Markdown. Fork it as a starting point
+for your own decks: the engine comes from the [`hashquiz`](https://www.npmjs.com/package/hashquiz)
+npm package, so this repository only holds decks and their deploy config.
+
+What the demo shows:
+
+- one folder per deck in `decks/<slug>/`, each with an `index.quizv.md`
+- `hashquiz check` in CI to validate every deck
+- `hashquiz build` to turn the decks into a static site, deployed on Vercel
 
 ## Decks
 

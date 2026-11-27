@@ -11,8 +11,11 @@ repository:
   # Homepage URL
   homepage: https://maxime-lenne.fr
 
-  # Visibility
-  # private: true
+  # Visibility: public demo of a HashQuiz implementation
+  private: false
+
+  # Description shown on GitHub
+  description: Demo implementation of HashQuiz, Markdown quiz decks built with the hashquiz npm package
 
   # Features
   has_issues: true
