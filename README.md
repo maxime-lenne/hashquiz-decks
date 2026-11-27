@@ -51,18 +51,18 @@ What the demo shows:
 
 | Deck | Title | Topics |
 |------|-------|--------|
-| [`docker-fundamentals`](decks/docker-fundamentals/) | Docker | docker-fundamentals, image, container |
-| [`genai-llm-introduction`](decks/genai-llm-introduction/) | Fondamentaux de l'IA Générative | ia, llm, prompt, rag, agents, mcp, gen-ai |
-| [`mcp-intro-and-overview`](decks/mcp-intro-and-overview/) | MCP intro and overview | mcp, ai, llm, integration |
+| [`genai-introduction`](decks/genai-introduction/) | Introduction à l'IA Générative | ia, llm, prompt, rag, gen-ai |
 
-Each folder holds an `index.quizv.md` (the quiz), `assets/` and the `sources/` used to plan it.
+The folder holds a single `index.quizv.md`: 10 questions in the HashQuiz Markdown format.
+A deck can also have an `assets/` folder for its images. More decks, with their sources, live in
+[WhiteWoodTech/hashquiz-trainings-decks](https://github.com/WhiteWoodTech/hashquiz-trainings-decks).
 
 ## Play and publish
 
 ```bash
 bun install
 bun run check                                             # validate every deck
-bun run dev decks/docker-fundamentals/index.quizv.md      # local game
+bun run dev decks/genai-introduction/index.quizv.md       # local game
 bun run build                                             # static site in dist/
 ```
 
