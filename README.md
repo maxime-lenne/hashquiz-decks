@@ -21,6 +21,11 @@ decks/
     index.hashquiz.md  # 33 questions on tech basics, from the terminal to the cloud
   ai-dev/
     index.hashquiz.md  # 24 questions on AI development, 12 drawn per game
+  web-annees-2000/     # five general-audience decks of 10 questions each, playable solo:
+  retrogaming/         #   the 2000s web, retro video games, geek films and series,
+  culture-geek/        #   tech history, and life in a tech team
+  histoire-tech/
+  open-space-tech/
 package.json           # the hashquiz CLI and three scripts: check, dev, build
 vercel.json            # how Vercel builds and serves the site
 .env.example           # the Supabase settings used by the build
@@ -105,6 +110,7 @@ The other decks are examples to play or copy:
 | --- | --- |
 | [`tech-fundamentals`](decks/tech-fundamentals/index.hashquiz.md) | 2 or 3 questions on each tech basic: terminal, bash, Git, JSON / YAML / Markdown, HTML, APIs, databases, Docker, CI/CD, code checks, observability, cloud, scraping and no-code |
 | [`ai-dev`](decks/ai-dev/index.hashquiz.md) | Question selection: `max-questions: 12` and `target-difficulty: hard` draw 12 of the 24 questions for each game, mostly hard ones, and `one-shoot: true` makes the first answer final |
+| [`web-annees-2000`](decks/web-annees-2000/index.hashquiz.md), [`retrogaming`](decks/retrogaming/index.hashquiz.md), [`culture-geek`](decks/culture-geek/index.hashquiz.md), [`histoire-tech`](decks/histoire-tech/index.hashquiz.md), [`open-space-tech`](decks/open-space-tech/index.hashquiz.md) | General-audience decks for an afterwork: 10 light, nostalgic questions each, on the 2000s web, retro gaming, geek films and series, tech history and office life in tech |
 
 ## Step 3. Check and play locally
 
