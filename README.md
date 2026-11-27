@@ -6,17 +6,21 @@ quiz in Markdown, play it live with an audience, and publish it on the web with
 
 HashQuiz is a real-time multiplayer quiz, a Kahoot alternative. The host shows the questions on a
 big screen and the players answer from their phones. Everything comes from the
-[`hashquiz`](https://www.npmjs.com/package/hashquiz) npm package, so this repository only holds a
-deck and three small config files. Fork it to start your own.
+[`hashquiz`](https://www.npmjs.com/package/hashquiz) npm package, so this repository only holds
+decks and three small config files. Fork it to start your own.
 
 ## What's in this repository
 
 ```text
 decks/
   genai-introduction/
-    index.hashquiz.md  # the quiz: 10 questions on generative AI
+    index.hashquiz.md  # the tutorial quiz: 10 questions on generative AI
   genai-introduction-solo/
     index.hashquiz.md  # the same quiz with `solo: true`, to play alone
+  tech-fundamentals/
+    index.hashquiz.md  # 33 questions on tech basics, from the terminal to the cloud
+  ai-dev/
+    index.hashquiz.md  # 24 questions on AI development, 12 drawn per game
 package.json           # the hashquiz CLI and three scripts: check, dev, build
 vercel.json            # how Vercel builds and serves the site
 .env.example           # the Supabase settings used by the build
@@ -94,6 +98,13 @@ tags: [ia, histoire]
 
 Open [`decks/genai-introduction/index.hashquiz.md`](decks/genai-introduction/index.hashquiz.md) for the
 full example, including a `multiple` question. To add a deck, create another folder in `decks/`.
+
+The other decks are examples to play or copy:
+
+| Deck | What it shows |
+| --- | --- |
+| [`tech-fundamentals`](decks/tech-fundamentals/index.hashquiz.md) | 2 or 3 questions on each tech basic: terminal, bash, Git, JSON / YAML / Markdown, HTML, APIs, databases, Docker, CI/CD, code checks, observability, cloud, scraping and no-code |
+| [`ai-dev`](decks/ai-dev/index.hashquiz.md) | Question selection: `max-questions: 12` and `target-difficulty: hard` draw 12 of the 24 questions for each game, mostly hard ones, and `one-shoot: true` makes the first answer final |
 
 ## Step 3. Check and play locally
 
