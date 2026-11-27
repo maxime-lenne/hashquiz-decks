@@ -20,6 +20,6 @@
     "build": "hashquiz build decks --out dist"
   },
   "devDependencies": {
-    "hashquiz": "^1.0.0-beta.2"
+    "hashquiz": "^1.0.0-beta.3"
   }
 }
