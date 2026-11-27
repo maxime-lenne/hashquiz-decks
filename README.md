@@ -6,8 +6,8 @@ quiz in Markdown, play it live with an audience, and publish it on the web with
 
 HashQuiz is a real-time multiplayer quiz, a Kahoot alternative. The host shows the questions on a
 big screen and the players answer from their phones. Everything comes from the
-[`hashquiz`](https://www.npmjs.com/package/hashquiz) npm package, so this repository only holds a
-deck and three small config files. Fork it to start your own.
+[`hashquiz`](https://www.npmjs.com/package/hashquiz) npm package, so this repository only holds
+decks and three small config files. Fork it to start your own.
 
 ## What's in this repository
 
@@ -17,6 +17,10 @@ decks/
     index.hashquiz.md  # the quiz: 10 questions on generative AI
   genai-introduction-solo/
     index.hashquiz.md  # the same quiz with `solo: true`, to play alone
+  tech-fondamentals/
+    index.hashquiz.md  # solo: 41 questions on the tech basics (Git, API, Docker, CI/CD, cloud, HTML…)
+  quiz-ia-dev/
+    index.hashquiz.md  # 24 questions on AI for developers (LLM, prompts, agents, RAG)
 package.json           # the hashquiz CLI and three scripts: check, dev, build
 vercel.json            # how Vercel builds and serves the site
 .env.example           # the Supabase settings used by the build
