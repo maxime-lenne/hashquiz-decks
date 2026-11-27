@@ -169,8 +169,6 @@ each push redeploys the site.
 
 ## Going further
 
-- **More decks**: the [WhiteWoodTech/hashquiz-trainings-decks](https://github.com/WhiteWoodTech/hashquiz-trainings-decks)
-  repository uses the same setup for 8 training decks.
 - **Solo mode**: a deck with `solo: true` can also be played alone, with a leaderboard. It needs the
   HashQuiz database schema in Supabase, see the
   [deploy guide](https://github.com/WhiteWoodTech/hashquiz/blob/develop/docs/DEPLOY.md).
