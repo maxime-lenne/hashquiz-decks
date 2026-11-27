@@ -1,268 +1,182 @@
-# hashquiz-decks
+# HashQuiz demo decks
 
-<!-- markdownlint-disable -->
-<p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="80" height="80" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original-wordmark.svg" alt="Github Action" width="80" height="80" />
-</p>
+A step-by-step example of how to use [HashQuiz](https://github.com/WhiteWoodTech/hashquiz): write a
+quiz in Markdown, play it live with an audience, and publish it on the web with
+[Vercel](https://vercel.com) and [Supabase](https://supabase.com).
 
-<p align="center">
-  <strong>hashquiz-decks</strong>
-</p>
+HashQuiz is a real-time multiplayer quiz, a Kahoot alternative. The host shows the questions on a
+big screen and the players answer from their phones. Everything comes from the
+[`hashquiz`](https://www.npmjs.com/package/hashquiz) npm package, so this repository only holds a
+deck and three small config files. Fork it to start your own.
 
-<p align="center">
-<a href="https://github.com/maxime-lenne/hashquiz-decks/actions?query=workflow%3ALint+branch%3Amain">
-		<img src="https://img.shields.io/github/actions/workflow/status/maxime-lenne/hashquiz-decks/lint.yml?branch=main"
-			 alt="Build Status">
-	</a>
-  <a href="https://github.com/maxime-lenne/hashquiz-decks/actions?query=workflow%3ARelease+branch%3Amain">
-		<img src="https://img.shields.io/github/actions/workflow/status/maxime-lenne/hashquiz-decks/release.yml?branch=main"
-			 alt="Build Status">
-	</a>
-  <a href="https://opensource.org/licenses/MIT">
-    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" />
-  </a>
-  <a href="https://bun.sh">
-    <img src="https://img.shields.io/badge/Package%20Manager-Bun-black" alt="Bun" />
-  </a>
-  <a href="https://gitmoji.dev">
-    <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg" alt="Gitmoji" />
-  </a>
-  <a href="https://semantic-release.gitbook.io/">
-    <img src="https://img.shields.io/badge/semantic--release-gitmoji-e10079?logo=semantic-release" alt="semantic-release: gitmoji" />
-</a>
-</p>
-<!-- markdownlint-restore -->
+## What's in this repository
 
----
-
-A public demo of how to implement [HashQuiz](https://github.com/WhiteWoodTech/hashquiz), a
-real-time multiplayer quiz (Kahoot alternative) driven by Markdown. Fork it as a starting point
-for your own decks: the engine comes from the [`hashquiz`](https://www.npmjs.com/package/hashquiz)
-npm package, so this repository only holds decks and their deploy config.
-
-What the demo shows:
-
-- one folder per deck in `decks/<slug>/`, each with an `index.quizv.md`
-- `hashquiz check` in CI to validate every deck
-- `hashquiz build` to turn the decks into a static site, deployed on Vercel
-
-## Decks
-
-| Deck | Title | Topics |
-|------|-------|--------|
-| [`genai-introduction`](decks/genai-introduction/) | Introduction à l'IA Générative | ia, llm, prompt, rag, gen-ai |
-
-The folder holds a single `index.quizv.md`: 10 questions in the HashQuiz Markdown format.
-A deck can also have an `assets/` folder for its images. More decks, with their sources, live in
-[WhiteWoodTech/hashquiz-trainings-decks](https://github.com/WhiteWoodTech/hashquiz-trainings-decks).
-
-## Play and publish
-
-```bash
-bun install
-bun run check                                             # validate every deck
-bun run dev decks/genai-introduction/index.quizv.md       # local game
-bun run build                                             # static site in dist/
+```text
+decks/
+  genai-introduction/
+    index.quizv.md   # the quiz: 10 questions on generative AI
+package.json         # the hashquiz CLI and three scripts: check, dev, build
+vercel.json          # how Vercel builds and serves the site
+.env.example         # the Supabase settings used by the build
+.github/workflows/
+  ci.yml             # checks and builds the decks on every push
 ```
 
-`bun run dev` starts a local game: host on <http://localhost:3031/host/>, players on port 3032.
+Once it's deployed, the site has two pages:
 
-The site deploys on Vercel with [`vercel.json`](vercel.json). Set these variables in the
-Vercel project (Supabase Realtime carries the game):
+| URL | Who uses it | What it does |
+| --- | --- | --- |
+| `/host` | The presenter | Picks a deck, opens a room, shows the questions and the podium |
+| `/` | The players | Join the room with its code (or a QR code) and answer |
+
+## Step 1. Install
+
+You need [Bun](https://bun.sh) 1.1 or later.
+
+```bash
+git clone https://github.com/maxime-lenne/hashquiz-decks.git
+cd hashquiz-decks
+bun install
+```
+
+`bun install` installs the `hashquiz` CLI. To start from an empty folder instead, run
+`bun init` and then `bun add -d hashquiz@beta`, and copy `vercel.json` and the scripts of
+`package.json`.
+
+## Step 2. Write a deck
+
+A deck is one Markdown file, `decks/<slug>/index.quizv.md`. It starts with a frontmatter that
+describes the quiz:
+
+```markdown
+---
+title: Introduction à l'IA Générative
+description: >
+  Deck de démonstration HashQuiz : 10 questions sur les bases
+  de l'IA générative, des LLM, du prompt et du RAG.
+theme: default
+author: Maxime Lenne
+tags: [ia, llm, prompt, rag, gen-ai]
+---
+```
+
+Each question has its own small frontmatter, then the question, its choices and an explanation:
+
+```markdown
+---
+type: single
+timer: 20
+difficulty: easy
+tags: [ia, histoire]
+---
+
+## En quelle année a été publié l'article "Attention is All You Need" qui a révolutionné l'IA ?
+
+- [ ] 2012
+- [ ] 2015
+- [x] 2017
+- [ ] 2022
+
+> L'article **"Attention is All You Need"** de Vaswani et al. (Google, 2017) a introduit l'architecture
+> **Transformer**, qui est aujourd'hui la base de tous les LLM modernes.
+```
+
+| Part | Meaning |
+| --- | --- |
+| `type` | `single` (one right answer) or `multiple` (several, say "sélectionnez 3" in the question) |
+| `timer` | Seconds to answer, 20 by default. A faster answer scores more points (500 to 1,000) |
+| `difficulty` | `easy`, `medium` or `hard` |
+| `## ...` | The question |
+| `- [x]` / `- [ ]` | A right / wrong choice. Always write **exactly 4 choices** that look alike |
+| `> ...` | The explanation shown after the answer is revealed |
+
+Open [`decks/genai-introduction/index.quizv.md`](decks/genai-introduction/index.quizv.md) for the
+full example, including a `multiple` question. To add a deck, create another folder in `decks/`.
+
+## Step 3. Check and play locally
+
+```bash
+bun run check                                         # validate every deck
+bun run dev decks/genai-introduction/index.quizv.md   # start a local game
+```
+
+`bun run dev` needs no account. It starts the host on <http://localhost:3031/host/> and the
+players on <http://localhost:3032>. Open the host and pick the deck: a lobby opens with a room code
+and a QR code. Join it from one or two other tabs, then click **Start Game** on the host.
+
+## Step 4. Create the Supabase project
+
+Online, the host and the players are on different devices. HashQuiz sends the game messages through
+[Supabase Realtime](https://supabase.com/docs/guides/realtime), so you need a Supabase project.
+The free plan is enough, and a multiplayer game needs no table or schema.
+
+1. On <https://supabase.com>, create a new project.
+2. In **Project Settings → API**, copy the **Project URL** and the **anon public** key.
+
+The anon key is meant to be public: it ends up in the site's `quizv-config.js`.
+
+## Step 5. Build the site
+
+`bun run build` turns every deck in `decks/` into a static site in `dist/`:
+
+```text
+dist/
+  index.html          # player app
+  host/index.html     # host app
+  host/decks.json     # the deck list read by the host
+  quizv-config.js     # the settings below, read by both apps at runtime
+```
+
+The build reads its settings from the environment. To try a Supabase build locally, copy
+`.env.example` to `.env` and fill in the values from step 4 (Bun loads `.env` by itself):
 
 | Variable | Value |
 | --- | --- |
-| `HASHQUIZ_TRANSPORT` | `supabase` |
-| `HASHQUIZ_SUPABASE_URL` | Supabase project URL |
-| `HASHQUIZ_SUPABASE_ANON_KEY` | Supabase anon public key |
+| `HASHQUIZ_TRANSPORT` | `supabase` (without it, the site only works with `bun run dev`) |
+| `HASHQUIZ_SUPABASE_URL` | The Project URL |
+| `HASHQUIZ_SUPABASE_ANON_KEY` | The anon public key |
 
-Then `/` is the player join page and `/host` the host dashboard. Details:
-[hashquiz package docs](https://github.com/WhiteWoodTech/hashquiz/blob/develop/docs/PACKAGE.md).
+## Step 6. Deploy on Vercel
 
-## Repository tooling
+1. Push your repository to GitHub.
+2. On <https://vercel.com/new>, import it. Leave the framework preset on **Other**.
+3. In **Environment Variables**, add the three variables of step 5 for Production and Preview.
+4. Click **Deploy**.
 
-### Code Quality
+You don't need to set the build command or the output folder: [`vercel.json`](vercel.json) does it.
 
-- **Bun** - Fast and modern package manager
-- **Husky** - Automated Git hooks
-- **lint-staged** - Incremental linting on staged files
-- **Markdownlint** - Markdown file validation
-- **Yamllint** - YAML file validation
-- **EditorConfig** - Consistent coding styles across editors
-
-### Commit & Release
-
-- **Gitmoji** - Commits with emojis (`✨ Add feature`)
-- **Commitlint** - Validates commit messages (gitmoji or conventional)
-- **Changelog** - Auto-generated from commits
-- **Semantic Release** - Automated versioning and GitHub releases
-
-### Dependency Management
-
-- **Renovate** - Weekly dependency updates, automerged when CI passes
-  (shared preset [`maxime-lenne/renovate-config`](https://github.com/maxime-lenne/renovate-config))
-- **GitHub vulnerability alerts** - Read by Renovate to open security fixes
-
-## Usage
-
-### Commits
-
-```bash
-# Interactive gitmoji commit
-bun run commit
+```json
+{
+  "buildCommand": "bun run build",
+  "outputDirectory": "dist",
+  "framework": null,
+  "rewrites": [
+    { "source": "/host", "destination": "/host/index.html" },
+    { "source": "/host/(.*)", "destination": "/host/$1" },
+    { "source": "/((?!host/|host$).*)", "destination": "/$1" }
+  ]
+}
 ```
 
-Accepted formats:
+The rewrites send `/host` to the host app and every other path to the player app. From now on,
+each push redeploys the site.
 
-- **Gitmoji**: `✨ Add new feature`
-- **Conventional**: `feat(scope): Add new feature`
+## Step 7. Play online
 
-### Linting
+1. Open `https://<your-domain>/host` on the big screen and pick the deck.
+2. Players scan the QR code of the lobby, or open `https://<your-domain>/` and type the room code.
+3. Click **Start Game**. After the last question, the host shows the podium.
 
-```bash
-bun run lint          # Lint all files
-bun run lint:md       # Lint Markdown only
-bun run lint:md:fix   # Auto-fix Markdown
-bun run lint:yaml     # Lint YAML files
-```
+## Going further
 
-### GitHub Settings
-
-```bash
-bun run setup:github            # Apply .github/settings.yml
-bun run setup:github --dry-run  # Preview changes
-```
-
-### Release
-
-Releases are automated via GitHub Actions when a PR is merged into `main`:
-the version is computed from the commits since the last release, then
-`package.json`, `CHANGELOG.md`, a `🔖 Release vX.Y.Z` commit, the `vX.Y.Z` tag
-and a GitHub Release (notes + `CHANGELOG.md`) are produced.
-
-```bash
-bun run release:dry   # Preview the next version and notes locally
-```
-
-#### Release Token (required)
-
-The `🔖 Release` commit is pushed to `main`, which is protected. On a personal
-account, neither `GITHUB_TOKEN` nor the GitHub Actions app can bypass that
-protection: only a repository admin can. The workflow therefore needs a
-`RELEASE_TOKEN` secret holding a personal access token (PAT) of yours.
-
-1. **Create the PAT once**, reused by all your repositories
-   ([GitHub → Settings → Developer settings → Personal access tokens](https://github.com/settings/tokens)):
-   - fine-grained token: resource owner = your account, **All repositories**,
-     repository permissions **Contents**, **Issues** and **Pull requests** in
-     read and write
-   - or a classic token with the `repo` scope
-2. **Store it in the repository** (on each new repository):
-
-   ```bash
-   RELEASE_TOKEN=<pat> bun run setup:github --only=secrets
-   # or: gh secret set RELEASE_TOKEN
-   ```
-
-   Keep the PAT in your password manager or shell environment: with
-   `RELEASE_TOKEN` exported, a plain `bun run setup:github` stores it too.
-3. **Renew it** before it expires, then store it again with the same command.
-
-Without `RELEASE_TOKEN`, the release job logs a warning and fails when pushing
-the release commit to the protected `main`.
-
-#### After a Release: `develop` Is Re-synced Automatically
-
-Rebase merges rewrite SHAs and the release adds a `🔖 Release` commit to `main`,
-so `develop` must be rebased onto `main` before the next `develop → main` PR.
-The release workflow does it right after the release (`bun run sync:develop`,
-force push with lease, allowed on `develop` for that purpose). Commits already
-on `main` are dropped, `develop` then contains the release commit.
-
-On your machine afterwards:
-
-```bash
-# develop never holds local commits: align it on the remote
-git switch develop
-git fetch origin
-git reset --hard origin/develop
-
-# branch in progress: replay it on the new develop
-git switch feature/my-branch
-git rebase origin/develop
-```
-
-If the workflow reports a conflict (rare: `develop` changed the same lines as
-the release commit), sync manually:
-
-```bash
-git switch develop && git fetch origin && git reset --hard origin/develop
-bun run sync:develop        # rebase develop onto main, push with lease
-```
-
-### Git Hooks
-
-Hooks are automatically configured via Husky:
-
-- **pre-commit**: Runs lint-staged on modified files
-- **commit-msg**: Validates commit message format
-- **post-checkout**: Deletes local branches whose PR was merged (at most once
-  per hour; `bun run clean:branches` to run it manually)
-
-## Version Bumping
-
-Versions are determined automatically by commit gitmoji or conventional type:
-
-| Gitmoji | Conventional | Version Bump |
-|---------|--------------|--------------|
-| 💥 | `type!:`, `BREAKING CHANGE:` | Major |
-| ✨ 🎉 | `feat` | Minor |
-| 🐛 🚑️ 🩹 🔒️ ⚡️ ♻️ 🚀 ⬆️ ⬇️ | `fix`, `perf`, `refactor` | Patch |
-
-Details and release notes sections: [`docs/TECHNICAL_GUIDE.md`](docs/TECHNICAL_GUIDE.md#semantic-release).
-
-## Documentation
-
-| File | Description |
-|------|-------------|
-| [`docs/AGENTS.md`](docs/AGENTS.md) | AI assistant guide and conventions |
-| [`docs/CONVENTIONS.md`](docs/CONVENTIONS.md) | Code style and git conventions |
-| [`docs/TECHNICAL_GUIDE.md`](docs/TECHNICAL_GUIDE.md) | Technical implementation details |
-| [`docs/PROJECT_STRUCTURE.md`](docs/PROJECT_STRUCTURE.md) | Directory and file organization |
-| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution guidelines |
-| [`CHANGELOG.md`](CHANGELOG.md) | Version history |
-
-## Configuration Files
-
-| File | Purpose |
-|------|---------|
-| `.github/settings.yml` | GitHub settings: branches, merge rules, labels, protection |
-| `renovate.json` | Renovate config (extends the shared preset) |
-| `.gitmoji.json` | Gitmoji-cli settings |
-| `release.config.js` | Semantic-release config |
-| `.markdownlint.json` | Markdown linting rules |
-| `.yamllint.yml` | YAML linting rules |
-| `.editorconfig` | Editor settings |
-| `commitlint.config.js` | Commit message validation |
-
-## Customization
-
-- **GitHub rules** (branches, reviews, required checks, labels): edit
-  `.github/settings.yml`, then `bun run setup:github`
-- **Dependency updates**: shared rules live in
-  [`maxime-lenne/renovate-config`](https://github.com/maxime-lenne/renovate-config);
-  project-specific rules go in `renovate.json`
-- **Linting**: `.markdownlint.json`, `.yamllint.yml`, `commitlint.config.js`
-- **Release**: `release.config.js`
+- **More decks**: the [WhiteWoodTech/hashquiz-trainings-decks](https://github.com/WhiteWoodTech/hashquiz-trainings-decks)
+  repository uses the same setup for 8 training decks.
+- **Solo mode**: a deck with `solo: true` can also be played alone, with a leaderboard. It needs the
+  HashQuiz database schema in Supabase, see the
+  [deploy guide](https://github.com/WhiteWoodTech/hashquiz/blob/develop/docs/DEPLOY.md).
+- **Every option** of the CLI and the build: the
+  [`hashquiz` package docs](https://github.com/WhiteWoodTech/hashquiz/blob/develop/docs/PACKAGE.md).
 
 ## License
 
-MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Author
-
-**Maxime Lenne** - [maxime-lenne.fr](https://maxime-lenne.fr)
-
-- GitHub: [@maxime-lenne](https://github.com/maxime-lenne)
-- LinkedIn: [maximelenne](https://linkedin.com/in/maximelenne)
+[MIT](LICENSE)
