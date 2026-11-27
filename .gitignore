@@ -5,6 +5,9 @@ node_modules/
 dist/
 .vercel/
 
+# Local solo runs (`hashquiz dev`)
+.hashquiz/
+
 # Local settings (copy .env.example to .env)
 .env
 .env.*

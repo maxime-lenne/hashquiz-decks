@@ -169,9 +169,15 @@ each push redeploys the site.
 
 ## Going further
 
-- **Solo mode**: a deck with `solo: true` can also be played alone, with a leaderboard. It needs the
-  HashQuiz database schema in Supabase, see the
-  [deploy guide](https://github.com/WhiteWoodTech/hashquiz/blob/develop/docs/DEPLOY.md).
+- **Solo mode**: a deck with `solo: true` can also be played alone, with a leaderboard. Locally,
+  `bun run dev` serves it with no setup and keeps the runs in `.hashquiz/solo.db`. Online, it needs the
+  HashQuiz schema in Supabase, which one command deploys once the site is live (it needs the
+  [Supabase CLI](https://supabase.com/docs/guides/cli), and `SUPABASE_ACCESS_TOKEN` and
+  `SUPABASE_DB_PASSWORD` in the environment):
+
+  ```bash
+  HASHQUIZ_SITE_URL=https://<your-domain> bunx hashquiz supabase deploy --project <project-ref>
+  ```
 - **Every option** of the CLI and the build: the
   [`hashquiz` package docs](https://github.com/WhiteWoodTech/hashquiz/blob/develop/docs/PACKAGE.md).
 
