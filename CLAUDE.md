@@ -1,28 +1,14 @@
 # CLAUDE.md
 
-Main guide for AI assistants working on this repository.
-
-**Full documentation**: [`docs/AGENTS.md`](docs/AGENTS.md)
-
-## Quick commands
+This repository is a public demo of a HashQuiz decks repository. Keep it small and didactic:
+the README is a step-by-step tutorial, so update it with any change.
 
 ```bash
-bun install           # Install dependencies (hashquiz CLI)
-bun run check         # Validate every deck
-bun run dev <deck>    # Local game for one deck (decks/<slug>/index.quizv.md)
-bun run build         # Static site in dist/ (Vercel)
-bun run lint          # Lint markdown and yaml
-bun run lint:md       # Lint markdown only
-bun run lint:md:fix   # Auto-fix markdown
-bun run lint:commit   # Validate last commit message
-bun run commit        # Interactive gitmoji commit
-bun run setup:github  # Apply .github/settings.yml to GitHub
-bun run clean:branches # Delete local branches whose PR was merged
+bun install                                         # install the hashquiz CLI
+bun run check                                       # validate every deck
+bun run dev decks/genai-introduction/index.quizv.md # local game
+bun run build                                       # static site in dist/ (Vercel)
 ```
 
-## Essential rules
-
-1. **Always consult** `docs/AGENTS.md` before any modification
-2. **Update** documentation when making changes
-3. **Follow** conventions established in each `docs/` file
-4. **Decks only**: the quiz engine is the `hashquiz` npm package (source: WhiteWoodTech/hashquiz), never copy its code here
+- Decks only: the quiz engine is the `hashquiz` npm package (source: WhiteWoodTech/hashquiz). Never copy its code here.
+- One folder per deck, `decks/<slug>/index.quizv.md`. Every question has exactly 4 choices.
