@@ -14,9 +14,7 @@ decks and three small config files. Fork it to start your own.
 ```text
 decks/
   genai-introduction/
-    index.hashquiz.md  # the tutorial quiz: 10 questions on generative AI
-  genai-introduction-solo/
-    index.hashquiz.md  # the same quiz with `solo: true`, to play alone
+    index.hashquiz.md  # the tutorial quiz: 10 questions on generative AI, playable solo
   tech-fundamentals/
     index.hashquiz.md  # 34 questions on tech basics, from the terminal to the cloud
   ai-dev/
@@ -68,6 +66,7 @@ description: >
 theme: default
 author: Maxime Lenne
 tags: [ia, llm, prompt, rag, gen-ai]
+solo: true            # also playable alone, see "Going further"
 ---
 ```
 
@@ -189,7 +188,7 @@ each push redeploys the site.
 ## Going further
 
 - **Solo mode**: a deck with `solo: true` can also be played alone, with a leaderboard, like
-  [`genai-introduction-solo`](decks/genai-introduction-solo/index.hashquiz.md). The player home lists it
+  [`genai-introduction`](decks/genai-introduction/index.hashquiz.md). The player home lists it
   under the join form, and its host card shows **Jouer en solo**. Locally,
   `bun run dev decks` (the folder, not a single file) serves it with no setup and keeps the runs in `.hashquiz/solo.db`. Online, it needs the
   HashQuiz schema in Supabase, which one command deploys once the site is live (it needs the

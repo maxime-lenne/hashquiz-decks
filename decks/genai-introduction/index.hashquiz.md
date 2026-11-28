@@ -6,6 +6,7 @@ description: >
 theme: default
 author: Maxime Lenne
 tags: [ia, llm, prompt, rag, gen-ai]
+solo: true
 ---
 
 ---
