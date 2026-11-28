@@ -1,11 +1,11 @@
 ---
 title: "Survivre à l'open space tech"
 description: >
-  Deck grand public HashQuiz : 10 questions décalées sur le jargon, les blagues et les petits rituels
-  de la vie dans une équipe tech.
+  Deck grand public HashQuiz : 15 questions décalées sur le jargon, les blagues, la culture startup et
+  les petits rituels de la vie dans une équipe tech.
 theme: default
 author: Maxime Lenne
-tags: [humour, jargon, bureau, dev, grand-public]
+tags: [humour, jargon, bureau, startup, agile, grand-public]
 solo: true
 ---
 
@@ -80,19 +80,19 @@ tags: [support, jargon]
 ---
 type: single
 timer: 20
-difficulty: medium
-tags: [vim, terminal]
+difficulty: easy
+tags: [startup, jargon]
 ---
 
-## Dans l'éditeur Vim, quelle commande permet de quitter sans enregistrer ?
+## Dans le monde des startups, qu'appelle-t-on une « licorne » ?
 
-- [x] :q!
-- [ ] Ctrl+C
-- [ ] exit
-- [ ] Alt+F4
+- [x] Une startup non cotée valorisée plus d'un milliard de dollars
+- [ ] Une startup qui n'a jamais levé de fonds
+- [ ] Un fondateur qui code, vend et recrute à la fois
+- [ ] Une application téléchargée un million de fois
 
-> Taper **Échap** puis **`:q!`**. Sur Stack Overflow, la question « How do I exit Vim? » a été vue plus de 2 millions
-> de fois.
+> Le terme a été inventé en 2013 par l'investisseuse Aileen Lee, car ces startups étaient alors aussi rares qu'une
+> **licorne**. En France, on pense à BlaBlaCar, Doctolib ou Mistral AI.
 
 ---
 type: single
@@ -161,6 +161,93 @@ tags: [deploiement, humour]
 
 > Si une mise en production casse quelque chose vendredi à 17 h, l'équipe risque d'y passer le week-end. D'où le
 > dicton « Don't deploy on Friday ».
+
+---
+type: single
+timer: 20
+difficulty: easy
+tags: [startup, produit]
+---
+
+## Que signifie MVP dans une startup ?
+
+- [x] Minimum Viable Product
+- [ ] Most Valuable Player
+- [ ] Maximum Value Project
+- [ ] Main Version in Production
+
+> Le **MVP** (produit minimum viable) est la version la plus simple d'un produit qui permet de tester l'idée auprès de
+> vrais utilisateurs. Rien à voir avec le meilleur joueur du match... même si l'équipe qui le livre mérite le titre.
+
+---
+type: single
+timer: 20
+difficulty: medium
+tags: [equipe, amazon]
+---
+
+## Selon la règle des « two-pizza teams » d'Amazon, une bonne équipe doit...
+
+- [x] Pouvoir être nourrie avec deux pizzas
+- [ ] Commander des pizzas à chaque mise en production
+- [ ] Compter deux chefs de projet
+- [ ] Se réunir deux fois par semaine
+
+> Pour Jeff Bezos, si deux pizzas ne suffisent pas à nourrir une équipe, c'est qu'elle est trop grande pour avancer
+> vite. Soit environ 6 à 10 personnes.
+
+---
+type: single
+timer: 20
+difficulty: easy
+tags: [agile, rituels]
+---
+
+## À la fin d'un sprint, comment s'appelle le rituel où l'équipe parle de ce qui a bien ou mal marché ?
+
+- [x] La rétrospective
+- [ ] La démo
+- [ ] Le daily
+- [ ] Le planning
+
+> La **rétro** sert à améliorer la façon de travailler ensemble, souvent avec des post-its « on garde / on arrête / on
+> essaie ». La **démo** montre le produit, le **daily** synchronise l'équipe chaque jour et le **planning** prépare le
+> sprint suivant.
+
+---
+type: single
+timer: 20
+difficulty: medium
+tags: [agile, rituels]
+---
+
+## Quelle suite de nombres retrouve-t-on souvent sur les cartes du planning poker ?
+
+- [x] La suite de Fibonacci (1, 2, 3, 5, 8, 13...)
+- [ ] Les nombres premiers (2, 3, 5, 7, 11...)
+- [ ] Les puissances de 10 (1, 10, 100...)
+- [ ] Les multiples de 5 (5, 10, 15...)
+
+> Avec la suite de **Fibonacci**, plus une tâche est grosse, plus l'écart entre deux cartes grandit : une bonne façon
+> de rappeler qu'une grosse estimation est forcément incertaine. Et il y a souvent une carte café.
+
+---
+type: single
+timer: 20
+difficulty: medium
+tags: [startup, pivot]
+---
+
+## Slack est le fruit d'un célèbre « pivot ». Que développait l'équipe à l'origine ?
+
+- [x] Un jeu vidéo en ligne
+- [ ] Un site de rencontre
+- [ ] Une application de covoiturage
+- [ ] Un logiciel de comptabilité
+
+> L'équipe de Stewart Butterfield créait **Glitch**, un jeu en ligne qui n'a pas trouvé son public. Elle a gardé son
+> outil de discussion interne et en a fait **Slack** en 2013. Butterfield avait déjà fait le coup avec Flickr, lui
+> aussi né d'un jeu.
 
 ---
 type: single

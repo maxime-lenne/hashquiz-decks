@@ -48,6 +48,23 @@ tags: [terminal]
 ---
 type: single
 timer: 20
+difficulty: medium
+tags: [terminal, vim]
+---
+
+## Dans l'éditeur Vim, quelle commande permet de quitter sans enregistrer ?
+
+- [x] `:q!`
+- [ ] `Ctrl+C`
+- [ ] `exit`
+- [ ] `Alt+F4`
+
+> Taper `Échap` puis `:q!`. `:wq` enregistre puis quitte. Sur Stack Overflow, la question « How do I exit Vim? » a été
+> vue plus de 2 millions de fois.
+
+---
+type: single
+timer: 20
 difficulty: easy
 tags: [bash]
 ---
