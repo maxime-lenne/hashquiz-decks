@@ -1,0 +1,20 @@
+# HashQuiz demo decks
+
+> Démo de HashQuiz, une alternative open source à Kahoot : des quiz multijoueurs en temps réel, écrits en
+> Markdown (fichiers `.hashquiz.md`), que les joueurs rejoignent depuis leur téléphone avec un code, sans compte.
+
+- Moteur : https://github.com/WhiteWoodTech/hashquiz (licence MIT, paquet npm `hashquiz`)
+- Ce dépôt, avec le tutoriel pas à pas : https://github.com/maxime-lenne/hashquiz-decks
+- Les joueurs rejoignent une partie sur `/`, l'animateur la lance sur `/host`
+
+## Écrire un quiz
+
+- [Format des decks et tutoriel](https://github.com/maxime-lenne/hashquiz-decks#step-2-write-a-deck): frontmatter YAML, une question par bloc, exactement 4 choix, explication en citation
+- [Exemple complet](https://raw.githubusercontent.com/maxime-lenne/hashquiz-decks/develop/decks/genai-introduction/index.hashquiz.md): 10 questions sur l'IA générative
+
+## Quiz disponibles
+
+- [genai-introduction](https://raw.githubusercontent.com/maxime-lenne/hashquiz-decks/develop/decks/genai-introduction/index.hashquiz.md): bases de l'IA générative, jouable en solo
+- [tech-fundamentals](https://raw.githubusercontent.com/maxime-lenne/hashquiz-decks/develop/decks/tech-fundamentals/index.hashquiz.md): fondamentaux de la tech, du terminal au cloud
+- [ai-dev](https://raw.githubusercontent.com/maxime-lenne/hashquiz-decks/develop/decks/ai-dev/index.hashquiz.md): développement avec l'IA
+- web-annees-2000, retrogaming, culture-geek, histoire-tech, open-space-tech : quiz grand public pour un afterwork
