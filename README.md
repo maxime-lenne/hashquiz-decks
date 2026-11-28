@@ -207,8 +207,8 @@ each push redeploys the site.
   `HASHQUIZ_SITE_URL` (your public URL, for the canonical link and the share image),
   `HASHQUIZ_LANG` (the language of your decks, e.g. `fr`) and `HASHQUIZ_INDEXABLE=true` (let search engines
   index the player page, which they skip by default). The host page is never indexed. `HASHQUIZ_CATALOG=true`
-  also publishes a page per deck under `/quiz/`, with every question and its answer, that search engines and AI
-  assistants can read. This needs a `hashquiz`
+  also publishes a page per deck under `/quiz/` (description, tags, difficulty, no questions) that search engines
+  and AI assistants can read. This needs a `hashquiz`
   release that includes [WhiteWoodTech/hashquiz#55](https://github.com/WhiteWoodTech/hashquiz/pull/55).
 
 - **Every option** of the CLI and the build: the
