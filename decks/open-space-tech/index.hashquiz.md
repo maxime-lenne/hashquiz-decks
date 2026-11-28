@@ -234,33 +234,33 @@ tags: [agile, rituels]
 ---
 type: single
 timer: 20
-difficulty: medium
-tags: [startup, pivot]
+difficulty: easy
+tags: [agile, kanban]
 ---
 
-## Slack est le fruit d'un célèbre « pivot ». Que développait l'équipe à l'origine ?
+## Comment s'appelle le tableau en colonnes « À faire / En cours / Terminé » qu'on retrouve dans tant d'équipes ?
 
-- [x] Un jeu vidéo en ligne
-- [ ] Un site de rencontre
-- [ ] Une application de covoiturage
-- [ ] Un logiciel de comptabilité
+- [x] Un tableau Kanban
+- [ ] Un diagramme de Gantt
+- [ ] Un mur de Scrum
+- [ ] Un tableau croisé dynamique
 
-> L'équipe de Stewart Butterfield créait **Glitch**, un jeu en ligne qui n'a pas trouvé son public. Elle a gardé son
-> outil de discussion interne et en a fait **Slack** en 2013. Butterfield avait déjà fait le coup avec Flickr, lui
-> aussi né d'un jeu.
+> **Kanban** signifie « étiquette » ou « panneau » en japonais. La méthode vient des usines **Toyota** dans les années
+> 50, bien avant les post-its numériques de Trello et Jira.
 
 ---
 type: single
 timer: 20
 difficulty: medium
-tags: [binaire, humour]
+tags: [produit, jargon]
 ---
 
-## « Il y a 10 sortes de personnes : celles qui comprennent le binaire et les autres. » Combien vaut 10 en binaire ?
+## Dans une entreprise tech, que veut dire « manger sa propre nourriture pour chien » (dogfooding) ?
 
-- [x] 2
-- [ ] 10
-- [ ] 1
-- [ ] 8
+- [x] Utiliser soi-même, en interne, le produit qu'on fabrique
+- [ ] Travailler tard en mangeant devant son écran
+- [ ] Copier le produit d'un concurrent
+- [ ] Livrer un produit pas encore testé
 
-> En binaire, **10** vaut **2** : 1 × 2 + 0 × 1. La blague compte donc bien deux sortes de personnes.
+> Popularisé chez Microsoft à la fin des années 80, le **dogfooding** consiste à faire tester son produit par ses
+> propres équipes avant les clients. Si c'est assez bon pour nous, ça le sera pour eux.
