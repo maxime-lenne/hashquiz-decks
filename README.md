@@ -24,6 +24,8 @@ decks/
   culture-geek/        #   tech history, and life in a tech team
   histoire-tech/
   open-space-tech/
+public/
+  llms.txt             # a summary for AI assistants, copied to the site root by the build
 package.json           # the hashquiz CLI and three scripts: check, dev, build
 vercel.json            # how Vercel builds and serves the site
 .env.example           # the Supabase settings used by the build
@@ -198,6 +200,14 @@ each push redeploys the site.
   ```bash
   HASHQUIZ_SITE_URL=https://<your-domain> bunx hashquiz supabase deploy --project <project-ref>
   ```
+
+- **Search engines and link previews**: the build copies everything in `public/` to the site root, like
+  [`public/llms.txt`](public/llms.txt), a short summary that AI assistants read. Add a `sitemap.xml` or your own
+  `og.png` (the image shown when a link is shared) the same way. Three optional variables complete it:
+  `HASHQUIZ_SITE_URL` (your public URL, for the canonical link and the share image),
+  `HASHQUIZ_LANG` (the language of your decks, e.g. `fr`) and `HASHQUIZ_INDEXABLE=true` (let search engines
+  index the player page, which they skip by default). The host page is never indexed. This needs a `hashquiz`
+  release that includes [WhiteWoodTech/hashquiz#55](https://github.com/WhiteWoodTech/hashquiz/pull/55).
 
 - **Every option** of the CLI and the build: the
   [`hashquiz` package docs](https://github.com/WhiteWoodTech/hashquiz/blob/develop/docs/PACKAGE.md).
