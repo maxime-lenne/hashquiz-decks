@@ -182,19 +182,19 @@ tags: [startup, produit]
 ---
 type: single
 timer: 20
-difficulty: medium
-tags: [equipe, amazon]
+difficulty: easy
+tags: [equipe, evenement]
 ---
 
-## Selon la règle des « two-pizza teams » d'Amazon, une bonne équipe doit...
+## Comment appelle-t-on un événement de 24 à 48 heures où des équipes construisent un prototype à toute vitesse ?
 
-- [x] Pouvoir être nourrie avec deux pizzas
-- [ ] Commander des pizzas à chaque mise en production
-- [ ] Compter deux chefs de projet
-- [ ] Se réunir deux fois par semaine
+- [x] Un hackathon
+- [ ] Un bootcamp
+- [ ] Un séminaire
+- [ ] Un marathon produit
 
-> Pour Jeff Bezos, si deux pizzas ne suffisent pas à nourrir une équipe, c'est qu'elle est trop grande pour avancer
-> vite. Soit environ 6 à 10 personnes.
+> Le **hackathon** (contraction de *hack* et *marathon*) mêle pizzas, nuits blanches et démos de dernière minute
+> devant un jury. Un **bootcamp**, lui, est une formation intensive de quelques semaines.
 
 ---
 type: single
@@ -251,16 +251,16 @@ tags: [agile, kanban]
 ---
 type: single
 timer: 20
-difficulty: medium
-tags: [produit, jargon]
+difficulty: easy
+tags: [equipe, rh]
 ---
 
-## Dans une entreprise tech, que veut dire « manger sa propre nourriture pour chien » (dogfooding) ?
+## Dans une équipe, que désigne l'« onboarding » ?
 
-- [x] Utiliser soi-même, en interne, le produit qu'on fabrique
-- [ ] Travailler tard en mangeant devant son écran
-- [ ] Copier le produit d'un concurrent
-- [ ] Livrer un produit pas encore testé
+- [x] L'accueil et l'intégration d'un nouvel arrivant
+- [ ] La mise en ligne d'une nouvelle application
+- [ ] L'embarquement pour un séminaire d'équipe
+- [ ] La signature d'un nouveau client
 
-> Popularisé chez Microsoft à la fin des années 80, le **dogfooding** consiste à faire tester son produit par ses
-> propres équipes avant les clients. Si c'est assez bon pour nous, ça le sera pour eux.
+> L'**onboarding** couvre tout ce qui aide un nouveau à trouver sa place : son poste prêt le premier jour, ses accès,
+> un parrain ou une marraine... et le premier café avec l'équipe.
